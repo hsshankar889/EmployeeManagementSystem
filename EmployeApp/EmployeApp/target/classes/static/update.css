@@ -1,0 +1,87 @@
+ #main{
+	height:100px;
+	width:100%;
+	background-color: purple;
+	color:white; 
+	font-size:20px;
+	display:flex;
+	align-items: center;
+}
+
+#logo{
+	height:80px;
+	width: 100px;
+	
+}
+ 
+ #updateEmployeeForm{
+            height:200px;
+            width: 500px;
+            background-color:white;
+            border: 3px solid black;
+            border-radius: 10%;
+            display:none;
+            position: absolute;
+            top: 50%;
+            left: 35%;
+        }
+        
+        #update_employee{
+            height: auto;
+            width: 600px;
+            border: 3px solid black;
+            border-radius: 10%;
+            background-color:white;
+            display:block;
+            position: absolute;
+            top: 20%;
+            left: 30%; 
+            
+        }
+        
+ table{ 
+            padding-left: 10%;
+            width: 90%;
+        }
+        #gender{
+        display: flex;
+        justify-content:space-between;
+        }
+        label{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        } 
+        label{
+            font-size:  large;
+        }
+        input{
+            font-size:  large;
+            display: block;
+            width: 100%;
+        }
+        #submitButton{
+            background-color: blue;
+            display: inline-block;
+            width: 40%;
+            color: white;
+            margin-left: 30%;
+            font-size:  larger;
+            
+        }
+        #resetButton{
+        	font-size:  larger;
+            background-color: red;
+            display: inline;
+            width: 40%;
+            color: white;
+            margin-left: 30%;
+        }
+        
+        #cancel{
+        width:30%;
+        margin-left: 5%;
+        background-color:black;
+        color: white;
+        font-size: large;
+        }

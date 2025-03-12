@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Update Page</title>
+<link rel="stylesheet"  href="update.css"></link>
+</head>
+<body>
+<!-- <script type="text/javascript" th:if="${message}">
+alert("[[${session.message}]]")
+[[${@messageRemover.remove()}]]
+</script> -->
+<header id="main">
+<pre>       </pre>
+<div id="logo">
+	<img style="height:80px;width: 100px;" id="image-1" alt="logo" src="https://cdn-icons-png.flaticon.com/128/8999/8999281.png"/>
+</div>
+<pre>  </pre>
+<h1>Employee Management System</h1>
+</header>
+<br><br>
+ 
+ <!-- <div id="update_employee">
+        <center>
+            <h1 style="color: blue;">Update Employee</h1>
+        </center>
+
+        <form action="" method="get">
+            <table id="table-1" cellpadding="1">
+                 <tr>
+           
+                    <td id="td">
+                        <label for="name"  hidden >Employee ID:</label>
+                    </td>
+                    <td id="td">
+                        <input th:text="${val.EmployeeID}" type="text" name="Id" id="name" hidden />
+                    </td>
+                </tr>
+                <tr>
+                    <td id="td">
+                        <label for="name">Name :</label>
+                    </td>
+                    <td id="td">
+                        <input th:text="${val.EmployeeName}" type="text" name="name" id="name"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="td">
+                        <label for="email">Email :</label>
+                    </td>
+                    <td id="td">
+                        <input th:text="${val.EmployeeEmail}" type="email" name="email" id="email"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="td">
+                        <label for="phone">Phone :</label>
+                    </td>
+                    <td id="td">
+                        <input th:text="${val.EmployeePhone}" type="tel" name="phone" id="phone"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="td">
+                        <label for="gender">Gender :</label>
+                    </td>
+                    <td id="td">
+                    <div id="gender">
+                        <input  type="radio" name="gender" value="Male" id="male"> Male
+                        <input type="radio" name="gender" value="Female" id="female"> Female
+                        <input type="radio" name="gender" value="Others" id="others"/> Others
+                    </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="td">
+                        <label for="role">Role :</label>
+                    </td>
+                    <td id="td">
+                        <input th:text="${val.EmployeeRole}" type="text" name="role" id="role"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="td">
+                        <label for="salary">Salary :</label>
+                    </td>
+                    <td id="td">
+                        <input th:text="${val.EmployeeSalary}" type="number" name="salary" id="salary"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="td">
+                        <label for="passowrd">Password :</label>
+                    </td>
+                    <td id="td">
+                        <input th:text="${val.EmployeePassword}" type="password" name="password" id="passowrd"/>
+                    </td>
+                </tr>
+                 
+            </table>
+            <br>
+            <input type="submit" value="Update Employee" id="submitButton"><br><br>
+           	<input type="reset" value="Reset" id="resetButton"><br><br>           	   
+        </form>
+        
+    </div>
+  -->
+  
+  <div id="update_employee"> 
+        <center>
+            <h1 style="color: green;">Update Employee</h1>
+        </center>
+
+        <form action="/modify" method="get">
+            <table cellpadding="1">
+            	<tr hidden> 
+                    <td id="td">
+                        <input th:value="${val.EmployeeID}" type="text" name="EmployeeID" />
+                    </td>
+                </tr>
+                <tr>
+                    <td id="td">
+                        <label for="name">Name :</label>
+                    </td>
+                    <td id="td">
+                        <input th:value="${val.EmployeeName}"   type="text" name="EmployeeName"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="td">
+                        <label for="email">Email :</label>
+                    </td>
+                    <td id="td">
+                        <input th:value="${val.EmployeeEmail}" type="email" name="EmployeeEmail"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="td">
+                        <label for="phone">Phone :</label>
+                    </td>
+                    <td id="td">
+                        <input th:value="${val.EmployeePhone}" type="tel" name="EmployeePhone" />
+                    </td>
+                </tr>
+                <tr>
+                    <td id="td">
+                        <label for="gender">Gender :</label>
+                    </td>
+                    <td id="td">
+                    <div id="gender">
+                        <input th:checked="${val.EmployeeGender=='Male'}" type="radio" name="EmployeeGender" value="Male" /> Male
+                        <input th:checked="${val.EmployeeGender=='Female'}" type="radio" name="EmployeeGender" value="Female"/> Female
+                        <input th:checked="${val.EmployeeGender=='Others'}" type="radio" name="EmployeeGender" value="Others"/> Others
+                    </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="td">
+                        <label for="role">Role :</label>
+                    </td>
+                    <td id="td">
+                        <input th:value="${val.EmployeeRole}" type="text" name="EmployeeRole"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="td">
+                        <label for="salary">Salary :</label>
+                    </td>
+                    <td id="td">
+                        <input th:value="${val.EmployeeSalary}" type="number" name="EmployeeSalary"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="td">
+                        <label for="passowrd">Password :</label>
+                    </td>
+                    <td id="td">
+                        <input th:value="${val.EmployeePassword}" type="text" name="EmployeePassword"/>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <input type="submit" value="Update Employee" id="submitButton" style="background-color: green;"><br><br>
+            
+        </form>
+        <a href="/ucancel"><button id="cancel" style="width:40%; margin-left:30%">Cancel</button></a><br><br>
+        
+    </div>
+  
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Employee Management System</title>
+<script type="text/javascript" src="display.js"></script>
+<link rel="stylesheet"  href="display.css"></link>
+</head>
+<body> 
+<header id="main">
+<pre>       </pre>
+<div id="logo">
+	<img style="height:80px;width: 100px;" id="image-1" alt="logo" src="https://cdn-icons-png.flaticon.com/128/8999/8999281.png"/>
+</div>
+<pre>  </pre>
+<h1>Employee Management System</h1>
+</header>
+<br><br>
+
+<center>
+<nav id="nav">
+<div class="buttonsdiv">
+<button id="button" onclick="addEmployee()">Add Employee</button>
+</div>
+<div class="buttonsdiv">
+<button id="button" onclick="updateEmployee()">Update Employee</button>
+</div>
+<div class="buttonsdiv">
+<button id="button" onclick="deleteEmployee()">Delete Employee</button>
+</div>
+<div class="buttonsdiv">
+<button id="button" onclick="deleteAllEmployee()">Delete All</button>
+</div>
+</nav>
+</center>
+<br><br>
+<center>
+<h1 th:text="${simple}"></h1>
+</center><br>
+<center>
+<div id="tablediv">
+	 <table id="table-1" border="2">
+        <thead>
+            <tr>
+                <th id="th">Employee ID</th>
+                <th id="th">Employee Name</th>
+                <th id="th">Employee Email</th>
+                <th id="th">Employee Phone</th>
+                <th id="th">Employee Gender</th>
+                <th id="th">Employee Salary</th>
+                <th id="th">Employee Role</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr th:each="val:${data}">
+                <td id="td" th:text="${val.EmployeeID}"></td>
+                <td id="td" th:text="${val.EmployeeName}"></td>
+                <td id="td" th:text="${val.EmployeeEmail}"></td>
+                <td id="td" th:text="${val.EmployeePhone}"></td>
+                <td id="td" th:text="${val.EmployeeGender}"></td>
+                <td id="td" th:text="${val.EmployeeSalary}"></td>
+                <td id="td" th:text="${val.EmployeeRole}"></td>
+            </tr>
+             
+            <!-- You can add more rows here -->
+        </tbody>
+    </table>
+</div>
+</center>
+<br><br>
+
+<!-- form's Started  -->
+<!-- Add Employee Form -->
+   <div id="add_employee"> 
+        <center>
+            <h1 style="color: green;">Add Employee</h1>
+        </center>
+
+        <form action="/add" method="get">
+            <table cellpadding="1">
+                <tr>
+                    <td id="td">
+                        <label for="name">Name :</label>
+                    </td>
+                    <td id="td">
+                        <input type="text" name="EmployeeName"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="td">
+                        <label for="email">Email :</label>
+                    </td>
+                    <td id="td">
+                        <input type="email" name="EmployeeEmail"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="td">
+                        <label for="phone">Phone :</label>
+                    </td>
+                    <td id="td">
+                        <input type="tel" name="EmployeePhone" />
+                    </td>
+                </tr>
+                <tr>
+                    <td id="td">
+                        <label for="gender">Gender :</label>
+                    </td>
+                    <td id="td">
+                    <div id="gender">
+                        <input type="radio" name="EmployeeGender" value="Male" /> Male
+                        <input type="radio" name="EmployeeGender" value="Female"/> Female
+                        <input type="radio" name="EmployeeGender" value="Others"/> Others
+                    </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="td">
+                        <label for="role">Role :</label>
+                    </td>
+                    <td id="td">
+                        <input type="text" name="EmployeeRole"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="td">
+                        <label for="salary">Salary :</label>
+                    </td>
+                    <td id="td">
+                        <input type="number" name="EmployeeSalary"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="td">
+                        <label for="passowrd">Password :</label>
+                    </td>
+                    <td id="td">
+                        <input type="text" name="EmployeePassword"/>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <input type="submit" value="Add Employee" id="submitButton" style="background-color: green;"><br><br>
+            <input type="reset" value="Reset" id="resetButton"><br><br>
+            
+        </form>
+        <button id="cancel"  onclick="cancel()" style="width:40%; margin-left:30%">Cancel</button><br><br>
+        
+    </div>
+
+<!-- Add Employee End -->
+
+<!-- Update Employee Started -->
+<div id="updateEmployeeForm" style="width: 500px;height: 250px;border-radius:0%; ">
+    <center>
+        <h1 style="color: red;">Update Employee</h1>
+    </center>
+    <form action="/updateFun" method="get">
+        <label for="id" style="margin-left:5%;display: block;">Enter Employee ID :</label><br>
+        <input type="text" name="id" id="update" style="margin-left:5%; display:block; width: 50%;"><br>
+        <input type="submit" value="Update" style="width:30%; margin-left: 5%; background-color:red;color: white;"><br>
+    </form> 
+    <button id="cancel"  onclick="cancel()" style="width:30%; margin-left:5%">Cancel</button><br><br>
+    
+</div>
+
+
+
+<div id="update_employee">
+        <center>
+            <h1 style="color: blue;">Update Employee</h1>
+        </center>
+
+        <form action="" method="get">
+            <table cellpadding="1">
+                <tr>
+                    <td id="td">
+                        <label for="name">Name :</label>
+                    </td>
+                    <td id="td">
+                        <input type="text" name="name" id="name"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="td">
+                        <label for="email">Email :</label>
+                    </td>
+                    <td id="td">
+                        <input type="email" name="email" id="email"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="td">
+                        <label for="phone">Phone :</label>
+                    </td>
+                    <td id="td">
+                        <input type="tel" name="phone" id="phone"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="td">
+                        <label for="gender">Gender :</label>
+                    </td>
+                    <td id="td">
+                    <div id="gender">
+                        <input type="radio" name="gender" value="Male" id="male"> Male
+                        <input type="radio" name="gender" value="Female" id="female"> Female
+                        <input type="radio" name="gender" value="Others" id="others"/> Others
+                    </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="td">
+                        <label for="role">Role :</label>
+                    </td>
+                    <td id="td">
+                        <input type="text" name="role" id="role"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="td">
+                        <label for="salary">Salary :</label>
+                    </td>
+                    <td id="td">
+                        <input type="number" name="salary" id="salary"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="td">
+                        <label for="passowrd">Password :</label>
+                    </td>
+                    <td id="td">
+                        <input type="password" name="password" id="passowrd"/>
+                    </td>
+                </tr>
+                 
+            </table>
+            <br>
+            <input type="submit" value="Update Employee" id="submitButton"><br><br>
+           	<input type="reset" value="Reset" id="resetButton"><br><br>           	   
+        </form>
+		<button  id="cancel"  onclick="cancel()"style="width:40%; margin-left:30%">Cancel</button><br><br>
+        
+    </div>
+
+<!-- Update Employee End -->
+<!-- Delete Employee Start -->
+
+<div id="deleteEmployee" style="width: 500px;height: 250px;border-radius:0%; ">
+    <center>
+        <h1 style="color: red;">Delete Employee</h1>
+    </center>
+    <form action="/delete" method="get">
+        <label for="delete" style="margin-left:5%;display: block;">Enter Employee ID :</label><br>
+        <input autofocus="autofocus" type="text" name="delete" id="delete" style="margin-left:5%; display:block; width: 50%;"><br>
+        <input type="submit" value="Delete" style="width:30%; margin-left: 5%; background-color:red;color: white;"><br>
+        
+    </form>
+	<button  id="cancel"  onclick="cancel()">Cancel</button>
+    
+</div>
+
+<!-- Delete Employee End -->
+
+<!-- Delete All Employee Started -->
+<div id="deleteAllEmployee">
+    <center>
+        <h1>Delete All Employee</h1>
+    </center>
+    <form action="/deleteAll" method="get">
+        <label for="deleteAll" style="margin-left:5%;display: block;color:red;">Type "yes" for Confirmation</label><br>
+        <input type="text" name="deleteAll" id="deleteAll" style="margin-left:5%; display:block; width: 50%;"><br>
+        <input type="submit" value="Delete All" style="width:30%; margin-left: 5%; background-color:black;color: white;"><br>
+    </form>
+ 	<button  id="cancel"  onclick="cancel()">Cancel</button>
+    
+</div>
+
+<!-- Delete All Employee End -->
+<script th:if="${session.message}" type="text/javascript">
+            alert("[[${session.message}]]");
+            [[${@messageRemover.remove()}]]
+        </script>
+</body>
+</html>
